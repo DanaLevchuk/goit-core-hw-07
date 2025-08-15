@@ -173,9 +173,12 @@ def birthdays(args, book: AddressBook):
 # === Парсер команд ===
 def parse_input(user_input):
     parts = user_input.strip().split()
+    if not parts:  # якщо пустий ввід
+        return "", []
     command = parts[0].lower()
     args = parts[1:]
     return command, args
+
 
 # === Основний цикл ===
 def main():
@@ -183,6 +186,9 @@ def main():
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter a command: ")
+        if not command:  # якщо пустий ввід
+         continue
+
         command, args = parse_input(user_input)
 
         if command in ["close", "exit"]:
