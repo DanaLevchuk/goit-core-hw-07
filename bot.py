@@ -186,10 +186,10 @@ def main():
     print("Welcome to the assistant bot!")
     while True:
         user_input = input("Enter a command: ")
-        if not command:  # якщо пустий ввід
-         continue
-
         command, args = parse_input(user_input)
+
+        if not command:  # якщо пустий рядок
+            continue
 
         if command in ["close", "exit"]:
             print("Good bye!")
